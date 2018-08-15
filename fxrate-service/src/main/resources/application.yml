@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: fxrate-service
+
+server:
+  port: 8302
+
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://fxdiscovery-service.cfapps.io/eureka
+  instance:
+    hostname: localhost

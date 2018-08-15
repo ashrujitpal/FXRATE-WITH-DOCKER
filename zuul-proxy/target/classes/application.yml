@@ -1,0 +1,24 @@
+server:
+  port: 8304
+
+spring:
+  application:
+    name: zuul-proxy
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://fxdiscovery-service.cfapps.io/eureka/
+    registerWithEureka: false
+    fetchRegistry: false    
+
+zuul:
+  prefix: /api
+  routes:
+    fxrate-service:
+      path: /fxrate-service/**
+      url: https://fxrate-service.local.pcfdev.io
+    fxrate-db-service:
+      path: /fxrate-db/**
+      url: https://fxrate-db.cfapps.io    
+    
