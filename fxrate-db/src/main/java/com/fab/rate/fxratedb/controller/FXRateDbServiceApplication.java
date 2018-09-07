@@ -28,6 +28,7 @@ public class FXRateDbServiceApplication {
 
 	@Autowired
 	private BaseCurrencyRepository baseCurrencyRepository;
+
 	
 	@Autowired
     public void setBaseCurrencyService(BaseCurrencyService baseCurrencyService) {
@@ -63,6 +64,8 @@ public class FXRateDbServiceApplication {
 		rates.setTimestamp(request.getTimestamp());
 		rates.setRate(request.getRates().toString());
 		
+		
+		fxRateService.deleteByBaseCurrency(rates);
 		fxRateService.addFXRates(rates);
 		
 		return true;
@@ -89,4 +92,13 @@ public class FXRateDbServiceApplication {
 		return fxRateService.getAllFXRates();
 		
 	}
+	
+	@GetMapping("/fxrates/{currency}")
+	public List<FXRates> getFXRatesByBaseCurrency(@PathVariable("currency") String currency ){
+		
+		System.out.println("We have reached at getFXRatesByBaseCurrency");
+		return fxRateService.getByBaseCurrency(currency);
+		
+	}
+	
 }

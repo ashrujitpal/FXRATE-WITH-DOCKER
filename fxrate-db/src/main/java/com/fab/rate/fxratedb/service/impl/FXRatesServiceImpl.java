@@ -35,6 +35,19 @@ public class FXRatesServiceImpl implements FXRatesService {
 		fxRatesRepo.delete(FXRates);
 	}
 	
+	@Override
+	public void deleteAll() {
+		
+		// TODO Auto-generated method stub
+		fxRatesRepo.deleteAll();
+	}
+	
+	@Override
+	public void deleteByBaseCurrency(FXRates fxRate) {
+		
+		// TODO Auto-generated method stub
+		fxRatesRepo.delete(fxRate);
+	}
 
 	@Override
 	public List<FXRates> getAllFXRates() {
@@ -42,5 +55,13 @@ public class FXRatesServiceImpl implements FXRatesService {
 		// TODO Auto-generated method stub
 		return  fxRatesRepo.findAll();
 	}	
+	
+	@Override
+	public List<FXRates> getByBaseCurrency(String baseCurrency) {
+		
+		// TODO Auto-generated method stub
+		System.out.println("Wehave reached at getByBaseCurrency");
+		return  fxRatesRepo.findByBaseCurrency(baseCurrency);
+	}
 
 }

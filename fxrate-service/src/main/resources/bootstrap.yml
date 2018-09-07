@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: fxrate-service
+  cloud:
+    config:
+      uri: http://localhot:9090
+      username: ashrujitpal@gmail.com
+      password: kolkata@1
+      discovery:
+        enabled: true
+        serviceId: fxrate-configserver
+      name: fxrate-service
+      profile: development
+      label: develop
+      
+server:
+  port: 8302
+
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: http://localhost
+    
+ 

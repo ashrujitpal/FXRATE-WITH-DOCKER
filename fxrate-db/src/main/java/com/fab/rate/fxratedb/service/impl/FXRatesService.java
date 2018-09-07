@@ -11,6 +11,13 @@ public interface FXRatesService {
 	public void deleteFXRates(FXRates FXRates);
 	
 	public List<FXRates> getAllFXRates();
+
+	List<FXRates> getByBaseCurrency(String baseCurrency);
+
+	void deleteAll();
+
+	public void deleteByBaseCurrency(FXRates fxRate);
+	
 	
 
 }

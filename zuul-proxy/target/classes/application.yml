@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: https://fxdiscovery-service.cfapps.io/eureka/
+      defaultZone: http://localhost:8761/eureka/
     registerWithEureka: false
     fetchRegistry: false    
 
@@ -17,8 +17,8 @@ zuul:
   routes:
     fxrate-service:
       path: /fxrate-service/**
-      url: https://fxrate-service.local.pcfdev.io
-    fxrate-db-service:
-      path: /fxrate-db/**
-      url: https://fxrate-db.cfapps.io    
+      url: http://localhost:8302 
+    fxratedb-service:
+      path: /fxratedb-service/**
+      url: http://localhost:8301    
     
